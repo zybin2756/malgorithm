@@ -5,6 +5,7 @@
 #include <string>
 #include <cassert>
 #include <stdlib.h>
+#include <iomanip>
 
 using namespace std;
 namespace SortTestHelper {
@@ -23,7 +24,8 @@ namespace SortTestHelper {
         sort(arr, n);
         clock_t end_time = clock();
         assert(SortTestHelper::isSorted(arr, n));
-        cout << ((double)end_time - start_time)/CLOCKS_PER_SEC << " s" << endl;
+        cout << name <<" n:" << n << endl;
+        cout << fixed << setprecision(8) << ((double)end_time - start_time)/CLOCKS_PER_SEC << " s" << endl;
     }
 
     template<typename T>
@@ -55,6 +57,15 @@ namespace SortTestHelper {
             swap(arr[s], arr[e]);
         }
         return arr;
+    }
+
+    template<typename T>
+    T* copyArray(T arr[], int n){
+        T* new_arr = new T[n];
+        for(int i = 0; i < n ; ++i){
+            new_arr[i] = arr[i];
+        }
+        return new_arr;
     }
 }
 
