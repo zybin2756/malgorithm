@@ -34,18 +34,31 @@ void bubbleSort(T arr[], int n){
     bool hasSwaped = true;
     for(int i = 0; i < n && hasSwaped; ++i){
         hasSwaped = false;
-        for(int j = n-1; j > i; --j){
+        for(int j = 0; j < n-i-1 ; ++j){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                hasSwaped = true;
+            }
+        }
+    }
+}
+
+template <typename T>
+void bubbleSort1(T arr[], int n){
+    bool hasSwaped = true;
+    for(int i = 0; i < n && hasSwaped; ++i){
+        hasSwaped = false;
+        for(int j = n-1; j > i ; --j){
             if(arr[j] < arr[j-1]){
                 swap(arr[j],arr[j-1]);
                 hasSwaped = true;
             }
         }
     }
-
 }
 
 template <typename T>
-void bubbleSort1(T arr[], int n){
+void bubbleSort2(T arr[], int n){
     bool hasSwaped = true;
     for(int i = 0; i < n && hasSwaped; ++i){
         hasSwaped = false;

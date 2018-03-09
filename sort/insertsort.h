@@ -88,7 +88,7 @@ tip2: 每次交换数据需要进行3次赋值操作，这里会消耗很多资�
 template<typename T>
 void insertSort1(T arr[], int n){
     for(int i = 1; i < n; ++i){
-        for(; j > 0 && arr[j] < arr[j-1]; --j){
+        for(int j = i; j > 0 && arr[j] < arr[j-1]; --j){
             swap(arr[j], arr[j-1]);
         }
     }
