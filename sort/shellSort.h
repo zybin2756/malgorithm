@@ -2,6 +2,33 @@
 #define SHELLSORT_H
 #include <math.h>
 
+//测试用主函数
+/*
+int main()
+{
+    int n = 10;
+    while(n <= 10000000){
+
+//        int* arr1 = SortTestHelper::createRandomArray(1,n,n);
+        int* arr1 = SortTestHelper::crateNealySortArray(n, 10);
+        int* arr2 = SortTestHelper::copyArray(arr1, n);
+        int* arr3 = SortTestHelper::copyArray(arr1, n);
+        int* arr4 = SortTestHelper::copyArray(arr1, n);
+        SortTestHelper::sortTest("d/3+1 ", shellSort, arr1, n);
+        SortTestHelper::sortTest("Sedgewick ", shellSort1, arr2, n);
+        SortTestHelper::sortTest("Hibbard ", shellSort2, arr3, n);
+        SortTestHelper::sortTest("Knuth ", shellSort3, arr4, n);
+        cout << "--------------------------------------" << endl;
+        delete[] arr1;
+        delete[] arr2;
+        delete[] arr3;
+        delete[] arr4;
+        n*=10;
+    }
+    return 0;
+}
+*/
+
 template<typename T>
 void shellSort(T arr[], int n){
     int increment = n;
