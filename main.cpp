@@ -18,7 +18,7 @@ int main()
 //        int* arr2 = SortTestHelper::copyArray(arr1, n);
 //        int* arr3 = SortTestHelper::copyArray(arr1, n);
 //        int* arr4 = SortTestHelper::copyArray(arr1, n);
-        SortTestHelper::sortTest("mergeSortUD", mergeSortUD, arr1, n);
+        SortTestHelper::sortTest("mergeSortDU", mergeSortDU, arr1, n);
 //        SortTestHelper::sortTest("Sedgewick ", shellSort1, arr2, n);
 
         cout << "--------------------------------------" << endl;

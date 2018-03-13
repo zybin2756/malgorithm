@@ -65,4 +65,20 @@ void mergeSortUD(T arr[], int n){
     __mergeSortUD(arr,0,n-1);
 }
 
+template<typename T>
+void mergeSortDU(T arr[], int n){
+    int m = 30;
+    for(int i = 0; i < n; i+=m){
+        insertSort(arr,i, min(n-1,i+m));
+    }
+
+    for(int sz = 30; sz < n; sz*=2){
+        for(int i = 0; i+sz < n; i+=2*sz){
+            if(arr[i+sz-1] > arr[i+sz]){
+                __merge(arr,i,i+sz - 1, min(i + 2*sz - 1, n - 1));
+            }
+        }
+    }
+}
+
 #endif // MERGESORT_H
