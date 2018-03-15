@@ -23,7 +23,7 @@ namespace SortTestHelper {
         clock_t start_time = clock();
         sort(arr, n);
         clock_t end_time = clock();
-        assert(SortTestHelper::isSorted(arr, n));
+//        assert(SortTestHelper::isSorted(arr, n));
         cout << name <<" n:" << n << endl;
         cout << fixed << setprecision(8) << ((double)end_time - start_time)/CLOCKS_PER_SEC << " s" << endl;
     }
