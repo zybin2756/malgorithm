@@ -15,6 +15,19 @@ public:
         this->capacity = capacity;
     }
 
+    MaxHeap(Item arr[], int n){
+        this->data = new Item[n+1];
+        this->count = n;
+        this->capacity = n;
+        for(int i =1; i <= n; ++i){
+            this->data[i] = arr[i-1];
+        }
+
+        for(int i = count/2; i >= 1; --i){
+            this->shiftDown(i);
+        }
+    }
+
     ~MaxHeap(){
         delete[] data;
     }
@@ -30,6 +43,7 @@ public:
     void push(Item ele){
         if(count > capacity)
         {
+            cout << 1 << endl;
             this->remalloc();
         }
         data[++count] = ele;
@@ -38,7 +52,7 @@ public:
 
     Item pop(){
         if(isEmpty()){
-            return NULL;
+            return Item(0);
         }
 
         swap(data[1], data[count--]);
@@ -56,7 +70,7 @@ public:
 private:
     void shiftUp(int k){
         while(k > 1 && data[k] > data[k/2]){
-            swap(data[k], data[k/2]);
+            data[k/2] = data[k];
             k/=2;
         }
     }
@@ -86,12 +100,17 @@ private:
     }
 };
 
+
+
+
+
 template<typename T>
-void __heapSort(T arr[], int n, bool asc=true){
+void __heapSort1(T arr[], int n, bool asc=true){
     MaxHeap<T> heap = MaxHeap<T>(n);
     for(int i = 0; i < n; ++i){
         heap.push(arr[i]);
     }
+
     if(asc){
         //升序
         for(int i = n; i > 0; --i){
@@ -107,8 +126,31 @@ void __heapSort(T arr[], int n, bool asc=true){
 }
 
 template<typename T>
-void heapSort(T arr[], int n){
-    __heapSort(arr, n);
+void heapSort1(T arr[], int n){
+    __heapSort1(arr, n);
 }
+
+template<typename T>
+void __heapSort2(T arr[], int n, bool asc=true){
+    MaxHeap<T> heap = MaxHeap<T>(arr, n);
+
+    if(asc){
+        //升序
+        for(int i = n; i > 0; --i){
+            arr[i-1] = heap.pop();
+        }
+    }else{
+
+        //降序
+        for(int i = 0; i < n; ++i){
+            arr[i] = heap.pop();
+        }
+    }
+}
+template<typename T>
+void heapSort2(T arr[], int n){
+    __heapSort2(arr, n);
+}
+
 
 #endif // MAXHEAP_H
