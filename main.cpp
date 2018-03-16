@@ -19,13 +19,13 @@ int main()
     while(n < 1000000000){ //
     
         int* arr1 = SortTestHelper::createRandomArray(1,n,n);
-//        int* arr2 = SortTestHelper::crateNealySortArray(n, 10);
+//        int* arr1 = SortTestHelper::crateNealySortArray(n, 10);
 //        int* arr3 = SortTestHelper::createRandomArray(1,10,n);
         int* arr2 = SortTestHelper::copyArray(arr1, n);
 //        int* arr3 = SortTestHelper::copyArray(arr1, n);
 //        int* arr4 = SortTestHelper::copyArray(arr1, n);
-        SortTestHelper::sortTest("heapSort1", heapSort1, arr1, n);
-        SortTestHelper::sortTest("heapSort2", heapSort2, arr2, n);
+        SortTestHelper::sortTest("heapSort2", heapSort2, arr1, n);
+        SortTestHelper::sortTest("heapSort1", heapSort1, arr2, n);
 //        SortTestHelper::sortTest("radixSort", radixSort, arr1, n);
 //        SortTestHelper::sortTest("countingSort", countingSort, arr3, n);
 //        SortTestHelper::printArray(arr1, n);

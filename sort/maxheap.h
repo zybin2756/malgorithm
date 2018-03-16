@@ -40,7 +40,7 @@ public:
         return count;
     }
 
-    void push(Item ele){
+    void insert(Item ele){
         if(count > capacity)
         {
             cout << 1 << endl;
@@ -51,10 +51,7 @@ public:
     }
 
     Item pop(){
-        if(isEmpty()){
-            return Item(0);
-        }
-
+        assert(count > 0);
         swap(data[1], data[count--]);
         shiftDown(1);
         return data[count+1];
@@ -70,7 +67,7 @@ public:
 private:
     void shiftUp(int k){
         while(k > 1 && data[k] > data[k/2]){
-            data[k/2] = data[k];
+            swap(data[k/2],data[k]);
             k/=2;
         }
     }
@@ -108,7 +105,7 @@ template<typename T>
 void __heapSort1(T arr[], int n, bool asc=true){
     MaxHeap<T> heap = MaxHeap<T>(n);
     for(int i = 0; i < n; ++i){
-        heap.push(arr[i]);
+        heap.insert(arr[i]);
     }
 
     if(asc){
